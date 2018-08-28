@@ -1,7 +1,13 @@
 Inverse Depth
 
-Version 1
+Version 1-------------------------------------------------------------------------------------------------------------------
 
 Se generan un cliente para conectarse a un servicio.
 
 No se obtiene una impresion de ningun dato.
+
+Version 2-------------------------------------------------------------------------------------------------------------------
+
+Cliente se conecta correctamente con servicio.
+
+Se imprime posicion al momento de correr el comando, no se actualiza y solo imprime una vez.

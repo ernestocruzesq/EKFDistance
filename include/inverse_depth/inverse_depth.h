@@ -36,7 +36,8 @@ class InverseDNode {
   	InverseDNode();
 	~InverseDNode();
 	void positionCallback(const geometry_msgs::Point msg);
-	void printPosition(void);
+	void getPosition(void);
+	void getRotation(void);
 
  private:
 
@@ -45,6 +46,8 @@ class InverseDNode {
 	ros::Subscriber gazebo_position;
 
 	ros::ServiceClient gls_client;
+
+	geometry_msgs::Pose pose;
 
 	gazebo_msgs::GetModelState gls_request;
 
