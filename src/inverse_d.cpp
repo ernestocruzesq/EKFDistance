@@ -7,10 +7,6 @@ int main(int argc, char *argv[]) {
 
 	InverseDNode Node;
 
-	Node.getPosition();
-	
-	Node.getRotation();
-
 	ros::spin();
 	
 	return 0;
