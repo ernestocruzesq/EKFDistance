@@ -1,7 +1,70 @@
 Inverse Depth
 
-Version 1
+Version 1-------------------------------------------------------------------------------------------------------------------
 
 Se generan un cliente para conectarse a un servicio.
 
 No se obtiene una impresion de ningun dato.
+
+Version 2-------------------------------------------------------------------------------------------------------------------
+
+Cliente se conecta correctamente con servicio.
+
+Se imprime posicion al momento de correr el comando, no se actualiza y solo imprime una vez.
+
+Version 3-------------------------------------------------------------------------------------------------------------------
+
+Debido a los problemas con actualización de la posición se busco regresar a un suscritor simple.
+
+Se uso de base codigo observado en gazebo plugins.
+
+No imprime nada.
+
+Version 4------------------------------------------------------------------------------------------------------------------
+
+Basandose en "Virtual_waypoints" se obtiene una conexion constante con el dron.
+
+Ya imprime en multiples ocasiones, pero siempre muestra que la posicion es (0,0,0).
+
+Version 5-------------------------------------------------------------------------------------------------------------------
+
+Version util, esta regresa posicion del dron continuamente.
+
+Basada en "Version 2" y tomandose en cuenta "Version 4" para la actualización continua de la posición.
+
+El cambio respecto a la "Version 4" fue la linea de codigo, se tenia originalmente:
+
+InverseDNode::InverseDNode():
+	nh_("~"), it_(nh_)
+
+Pero si se dejaba nh_(~) en el constructor no funcionaba, por lo cual se borro del constructor y se añadio como:
+
+ros::NodeHandle params("~");
+
+Finalmente para que se llamara el servicio en cada ocasion todo se metió en la función getPosition().
+
+Esta se añadio al CallBack el cual se repite indefinidamente.
+
+Version 6------------------------------------------------------------------------------------------------------------------
+
+Se añadió un analisis con Shi Tomasi, para obtener las esquinas de algun objeto, de esta forma usarlo como Px.
+
+Se usa GoodFeaturesToTrack, se añade como una nueva función llamada cornerDetection().
+
+Version 7------------------------------------------------------------------------------------------------------------------
+
+Se añadió el calculo de los parametros Hx y Hy
+
+Version 8------------------------------------------------------------------------------------------------------------------
+
+Se añadió la inicialización del "inverse depth ray". Se hizo el metodo y se crearon las variables.
+
+Version 9------------------------------------------------------------------------------------------------------------------
+
+Se cambió en "getPosition" and "getRotation" y se juntaron en uno solo "getPose".
+
+Version 10-----------------------------------------------------------------------------------------------------------------
+
+Se generó un tecer archivo de C++ donde se metieron los metodos para posicion y rotación.
+
+Ahi mismo se genero un nuevo metodo para saber los angulos theta y phi.

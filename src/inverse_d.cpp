@@ -7,8 +7,6 @@ int main(int argc, char *argv[]) {
 
 	InverseDNode Node;
 
-	//Node.printPosition();
-
 	ros::spin();
 	
 	return 0;

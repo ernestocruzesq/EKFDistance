@@ -5,6 +5,7 @@ find_package(catkin REQUIRED COMPONENTS
   cv_bridge
   image_transport
   #opencv2
+  OpenCV
   roscpp
   rospy
   sensor_msgs
@@ -35,7 +36,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${QT_INCLUDES} include include/inverse_depth)
 
 ## Declare a C++ executable
-add_executable(inverse_depth src/inverse_d.cpp src/inverse_d_aux.cpp)
+add_executable(inverse_depth src/inverse_d.cpp src/inverse_d_aux.cpp src/pose_translation.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(inverse_depth ${QT_LIBRARIES}
